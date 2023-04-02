@@ -2,6 +2,7 @@ const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
 const app = express();
+require("dotenv").config();
 
 app.use(
     cors({
@@ -29,6 +30,7 @@ app.get("/photos", async (req, res) => {
     }
 });
 
-app.listen(3001, () => {
-    console.log("Server listening on port 3001");
+const port = process.env.PORT || 3000; // Set default port to 3000
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
 });
